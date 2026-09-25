@@ -1,68 +1,421 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Supermercado El Sol - Inicio</title>
-    <link rel="stylesheet" href="main.css">
-    <!-- Fuente Google Fonts -->
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f7f4;
+            color: #333;
+        }
+
+        /* BARRA DE NAVEGACIÓN */
+
+        .navbar {
+            background-color: #198754;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 8%;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: #ffe066;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 14px;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            background-color: white;
+            color: #198754;
+        }
+
+        /* CONTENEDOR */
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* SECCIÓN PRINCIPAL */
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            padding: 70px 0;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-content h1 {
+            color: #198754;
+            font-size: 42px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .hero-image {
+            flex: 1;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+        }
+
+        /* BOTONES */
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            border: none;
+            padding: 13px 22px;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background-color: #198754;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #146c43;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: #ffe066;
+            color: #333;
+        }
+
+        .btn-secondary:hover {
+            background-color: #f5c842;
+            transform: translateY(-2px);
+        }
+
+        /* DEPARTAMENTOS */
+
+        .categories {
+            padding: 30px 0 70px;
+        }
+
+        .categories h2 {
+            text-align: center;
+            color: #198754;
+            font-size: 30px;
+            margin-bottom: 35px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.10);
+            transition: 0.3s;
+            text-align: center;
+            padding-bottom: 20px;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card h3 {
+            color: #198754;
+            font-size: 20px;
+            margin: 18px 15px 10px;
+        }
+
+        .card p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        /* PIE DE PÁGINA */
+
+        footer {
+            background-color: #146c43;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer p {
+            font-size: 14px;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 768px) {
+
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                gap: 10px;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 32px;
+            }
+
+            .button-group {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-image {
+                width: 100%;
+            }
+        }
+
+    </style>
 </head>
+
 <body>
 
+    <!-- MENÚ -->
+
     <header class="navbar">
-        <div class="logo">🛒 Supermercado <span>El Sol</span></div>
+
+        <div class="logo">
+            🛒 Supermercado <span>El Sol</span>
+        </div>
+
         <nav>
             <a href="index.html" class="active">Inicio</a>
             <a href="mision.html">Misión</a>
             <a href="vision.html">Visión</a>
         </nav>
+
     </header>
 
+
+    <!-- CONTENIDO PRINCIPAL -->
+
     <main class="container">
+
+        <!-- PRESENTACIÓN -->
+
         <section class="hero">
+
             <div class="hero-content">
-                <h1>Bienvenidos a Supermercado El Sol</h1>
-                <p>Frescura, calidad y los mejores precios para tu hogar todos los días.</p>
+
+                <h1>
+                    Bienvenidos a Supermercado El Sol
+                </h1>
+
+                <p>
+                    Frescura, calidad y los mejores precios
+                    para tu hogar todos los días.
+                </p>
+
                 <div class="button-group">
-                    <button type="button" class="btn btn-primary" onclick="window.location.href='mision.html';">
+
+                    <button
+                        type="button"
+                        class="btn btn-primary"
+                        onclick="window.location.href='mision.html';">
+
                         🎯 Ver Nuestra Misión
+
                     </button>
-                    <button type="button" class="btn btn-secondary" onclick="window.location.href='vision.html';">
+
+                    <button
+                        type="button"
+                        class="btn btn-secondary"
+                        onclick="window.location.href='vision.html';">
+
                         🚀 Ver Nuestra Visión
+
                     </button>
+
                 </div>
+
             </div>
+
+
             <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=800&q=80" alt="Supermercado Pasillo">
+
+                <img
+                    src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=800&q=80"
+                    alt="Pasillo de supermercado">
+
             </div>
+
         </section>
+
+
+        <!-- DEPARTAMENTOS -->
 
         <section class="categories">
-            <h2>Nuestros Departamentos</h2>
+
+            <h2>
+                Nuestros Departamentos
+            </h2>
+
+
             <div class="grid">
+
+                <!-- FRUTAS -->
+
                 <div class="card">
-                    <img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&w=400&q=80" alt="Frutas y Verduras">
-                    <h3>Frutas y Verduras</h3>
-                    <p>Frescura cosechada a diario por nuestros agricultores locales.</p>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&w=400&q=80"
+                        alt="Frutas y verduras">
+
+                    <h3>
+                        Frutas y Verduras
+                    </h3>
+
+                    <p>
+                        Frescura y calidad en frutas y verduras
+                        seleccionadas diariamente.
+                    </p>
+
                 </div>
+
+
+                <!-- PANADERÍA -->
+
                 <div class="card">
-                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=400&q=80" alt="Panadería">
-                    <h3>Panadería Recién Horneada</h3>
-                    <p>El mejor pan y pasteles artesanales listos cada mañana.</p>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=400&q=80"
+                        alt="Panadería">
+
+                    <h3>
+                        Panadería
+                    </h3>
+
+                    <p>
+                        Panes y productos recién horneados
+                        para disfrutar todos los días.
+                    </p>
+
                 </div>
+
+
+                <!-- CARNES -->
+
                 <div class="card">
-                    <img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?auto=format&fit=crop&w=400&q=80" alt="Carnes">
-                    <h3>Carnes Seleccionadas</h3>
-                    <p>Cortes de la más alta calidad con los mejores estándares.</p>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?auto=format&fit=crop&w=400&q=80"
+                        alt="Carnes">
+
+                    <h3>
+                        Carnes Seleccionadas
+                    </h3>
+
+                    <p>
+                        Carnes seleccionadas con altos estándares
+                        de calidad para nuestros clientes.
+                    </p>
+
                 </div>
+
             </div>
+
         </section>
+
     </main>
 
+
+    <!-- PIE DE PÁGINA -->
+
     <footer>
-        <p>&copy; 2026 Supermercado El Sol. Todos los derechos reservados.</p>
+
+        <p>
+            © 2026 Supermercado El Sol. Todos los derechos reservados.
+        </p>
+
     </footer>
 
 </body>
+
 </html>
+```
+
