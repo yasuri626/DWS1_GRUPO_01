@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misión - SuperMarket Fresco & Ahorro</title>
+    <style>
+        :root {
+            --primary: #16a34a;
+            --primary-dark: #15803d;
+            --primary-light: #dcfce7;
+            --secondary: #ea580c;
+            --secondary-light: #ffedd5;
+            --dark: #0f172a;
+            --muted: #64748b;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --border: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Barra de Navegación */
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0.9rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.25rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--muted);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #052e16 0%, #14532d 50%, #166534 100%);
+            color: #ffffff;
+            padding: 4.5rem 1.5rem;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(4px);
+            color: #bbf7d0;
+            padding: 0.35rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: #dcfce7;
+        }
+
+        /* Main Container */
+        .main-container {
+            max-width: 1100px;
+            margin: -2.5rem auto 3rem;
+            padding: 0 1.5rem;
+        }
+
+        /* Misión Card */
+        .mission-container {
+            max-width: 860px;
+            margin: 0 auto 3.5rem;
+        }
+
+        .pillar-card {
+            background: var(--card-bg);
+            border-radius: 1rem;
+            padding: 2.75rem 2.5rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pillar-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--primary);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.85rem;
+            margin-bottom: 1.25rem;
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+
+        .pillar-card h2 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 1.1rem;
+            color: var(--dark);
+        }
+
+        .pillar-card p {
+            color: #334155;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Sección de Valores */
+        .section-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            color: var(--muted);
+            font-size: 1rem;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .value-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .value-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+        }
+
+        .value-icon {
+            font-size: 2.2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .value-item h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .value-item p {
+            font-size: 0.9rem;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        /* Estadísticas / Impacto */
+        .stats-section {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 2.5rem 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .stat-item h3 {
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-item p {
+            color: var(--muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* Banner de Acción / CTA */
+        .cta-banner {
+            background: linear-gradient(135deg, #15803d, #16a34a);
+            color: #ffffff;
+            border-radius: 1rem;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        .cta-banner h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+
+        .cta-banner p {
+            max-width: 550px;
+            color: #dcfce7;
+            font-size: 1rem;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .btn-white {
+            background-color: #ffffff;
+            color: var(--primary-dark);
+        }
+
+        .btn-white:hover {
+            background-color: #f0fdf4;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--card-bg);
+            border-top: 1px solid var(--border);
+            text-align: center;
+            padding: 2rem 1.5rem;
+            color: var(--muted);
+            font-size: 0.88rem;
+        }
+
+        footer p + p {
+            margin-top: 0.4rem;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Encabezado y Navegación -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🛒</span>
+                <span>SuperMarket</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="mision.html" class="active">Misión</a></li>
+                <li><a href="contacto01.html">Contacto</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Banner Principal -->
+    <section class="hero">
+        <span class="hero-badge">Nuestro Propósito</span>
+        <h1>Nuestra Misión</h1>
+        <p>Conoce la razón que nos impulsa a seleccionar los mejores productos y llevar frescura y ahorro a tu hogar cada día.</p>
+    </section>
+
+    <!-- Contenido Principal -->
+    <main class="main-container">
+
+        <!-- Misión -->
+        <div class="mission-container">
+            <article class="pillar-card">
+                <div class="card-icon">🎯</div>
+                <h2>Misión Institucional</h2>
+                <p>
+                    Brindar a todas las familias peruanas acceso oportuno a productos frescos, variados y de primera calidad con los precios más competitivos del mercado. Nos esforzamos por ofrecer una experiencia de compra cercana, ágil y confiable, respaldando el trabajo de los productores locales y promoviendo el bienestar de nuestras comunidades.
+                </p>
+            </article>
+        </div>
+
+        <!-- Valores Corporativos -->
+        <section class="section-header">
+            <h2>Nuestros Valores</h2>
+            <p>Los principios que guían cada una de nuestras decisiones y acciones diarias.</p>
+        </section>
+
+        <div class="values-grid">
+            <div class="value-item">
+                <div class="value-icon">🥬</div>
+                <h3>Frescura y Calidad</h3>
+                <p>Seleccionamos rigurosamente cada producto desde su origen para asegurar los más altos estándares de calidad.</p>
+            </div>
+
+            <div class="value-item">
+                <div class="value-icon">💰</div>
+                <h3>Ahorro Real</h3>
+                <p>Mantenemos precios justos y promociones transparentes que cuidan activamente la economía familiar.</p>
+            </div>
+
+            <div class="value-item">
+                <div class="value-icon">🤝</div>
+                <h3>Cercanía y Respeto</h3>
+                <p>Tratamos a cada cliente y colaborador con calidez, empatía y vocación genuina de servicio.</p>
+            </div>
+
+            <div class="value-item">
+                <div class="value-icon">🌿</div>
+                <h3>Sostenibilidad</h3>
+                <p>Fomentamos el uso responsable de recursos, el reciclaje y el comercio justo con productores locales.</p>
+            </div>
+        </div>
+
+        <!-- Estadísticas de Confianza -->
+        <section class="stats-section">
+            <div class="stat-item">
+                <h3>100%</h3>
+                <p>Frescura Diaria Garantizada</p>
+            </div>
+            <div class="stat-item">
+                <h3>+500</h3>
+                <p>Productores Locales Aliados</p>
+            </div>
+            <div class="stat-item">
+                <h3>+50,000</h3>
+                <p>Familias Satisfechas al Mes</p>
+            </div>
+            <div class="stat-item">
+                <h3>24/7</h3>
+                <p>Atención y Compromiso</p>
+            </div>
+        </section>
+
+        <!-- Llamado a la Acción -->
+        <section class="cta-banner">
+            <h3>¿Listo para vivir la mejor experiencia de compra?</h3>
+            <p>Visita nuestras tiendas o ponte en contacto con nuestro equipo para conocer nuestras ofertas y convenios institucionales.</p>
+            <div class="btn-group">
+                <a href="index.html" class="btn btn-white">Volver al Inicio</a>
+                <a href="contacto01.html" class="btn btn-outline">Ver Contacto</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>© 2026 SuperMarket Fresco & Ahorro — Todos los derechos reservados.</p>
+        <p>Proyecto Académico: IDAT • Desarrollo de Servicios Web I (Grupo 01)</p>
+    </footer>
+
+</body>
+</html>
