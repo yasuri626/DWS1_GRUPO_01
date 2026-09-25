@@ -1,19 +1,68 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="es">
 <head>
-    <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <title>Page Title</title>
-    <link rel='stylesheet' href='main.css'>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Supermercado El Sol - Inicio</title>
+    <link rel="stylesheet" href="main.css">
+    <!-- Fuente Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <button type="button" onclick="window.location.href='vision.html';">
-        Ir a otra página
-    </button>
-    <button type="button" onclick="window.location.href='mision.html';">
-        Ir a mision
-    </button>
+    <header class="navbar">
+        <div class="logo">🛒 Supermercado <span>El Sol</span></div>
+        <nav>
+            <a href="index.html" class="active">Inicio</a>
+            <a href="mision.html">Misión</a>
+            <a href="vision.html">Visión</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Bienvenidos a Supermercado El Sol</h1>
+                <p>Frescura, calidad y los mejores precios para tu hogar todos los días.</p>
+                <div class="button-group">
+                    <button type="button" class="btn btn-primary" onclick="window.location.href='mision.html';">
+                        🎯 Ver Nuestra Misión
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="window.location.href='vision.html';">
+                        🚀 Ver Nuestra Visión
+                    </button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=800&q=80" alt="Supermercado Pasillo">
+            </div>
+        </section>
+
+        <section class="categories">
+            <h2>Nuestros Departamentos</h2>
+            <div class="grid">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&w=400&q=80" alt="Frutas y Verduras">
+                    <h3>Frutas y Verduras</h3>
+                    <p>Frescura cosechada a diario por nuestros agricultores locales.</p>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=400&q=80" alt="Panadería">
+                    <h3>Panadería Recién Horneada</h3>
+                    <p>El mejor pan y pasteles artesanales listos cada mañana.</p>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?auto=format&fit=crop&w=400&q=80" alt="Carnes">
+                    <h3>Carnes Seleccionadas</h3>
+                    <p>Cortes de la más alta calidad con los mejores estándares.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Supermercado El Sol. Todos los derechos reservados.</p>
+    </footer>
 
 </body>
 </html>
